@@ -19,5 +19,9 @@ namespace Fiorello.Areas.AdminPanel.Controllers
         {
             return View(_context.Slides);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
