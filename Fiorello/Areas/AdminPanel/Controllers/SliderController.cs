@@ -48,13 +48,7 @@ namespace Fiorello.Areas.AdminPanel.Controllers
                 ModelState.AddModelError("Photo", "File type must be image ");
                 return View();
             }
-            var fileName = Guid.NewGuid().ToString() + slide.Photo.FileName;
-            var resultPath = Path.Combine(_env.WebRootPath,"img",fileName);
-            using(FileStream filestream = new FileStream(resultPath, FileMode.Create))
-            {
-                await slide.Photo.CopyToAsync(filestream);
-            };
-            slide.Url = fileName;
+            slide.Url = await slide.Photo.SaveFileAsync(_env.WebRootPath,"img");
             await _context.Slides.AddAsync(slide);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
