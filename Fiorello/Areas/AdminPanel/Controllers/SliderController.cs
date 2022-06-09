@@ -1,4 +1,5 @@
 ﻿using Fiorello.DAL;
+using Fiorello.Helpers;
 using Fiorello.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,12 +38,12 @@ namespace Fiorello.Areas.AdminPanel.Controllers
                 return View();
             }
 
-            if(slide.Photo.Length / 1024 > 200)
+            if(!slide.Photo.CheckFileSize(200))
             {
                 ModelState.AddModelError("Photo","File size must be less than 200 KB");
                 return View();
             }
-            if (!slide.Photo.ContentType.Contains("img/"))
+            if (!slide.Photo.CheckFileType("image/"))
             {
                 ModelState.AddModelError("Photo", "File type must be image ");
                 return View();
