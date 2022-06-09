@@ -9,11 +9,11 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Create New Slider</h4>
-                <form class="forms-sample" method="post">
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label asp-for="Url">Select Photo:</label>
-                        <input asp-for="Url" class="form-control">
-                        <span class="text-danger" asp-validation-for="Url"></span>
+                        <label asp-for="Photo">Select Photo:</label>
+                        <input asp-for="Photo" class="form-control">
+                        <span class="text-danger" asp-validation-for="Photo"></span>
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Create</button>
                     <a class="btn btn-light" asp-action="Index">Cancel</a>

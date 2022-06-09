@@ -1,4 +1,5 @@
 ﻿using Fiorello.DAL;
+using Fiorello.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,23 @@ namespace Fiorello.Areas.AdminPanel.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Slide slide)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            if(slide.Photo.Length / 1024 > 200)
+            {
+                ModelState.AddModelError("Photo","Image size must be less than 200 KB");
+                return View();
+            }
+
+            return Content("ok");
         }
     }
 }
