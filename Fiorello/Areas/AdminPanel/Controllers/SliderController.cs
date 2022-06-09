@@ -44,10 +44,11 @@ namespace Fiorello.Areas.AdminPanel.Controllers
                 ModelState.AddModelError("Photo", "File type must be image ");
                 return View();
             }
-            using(FileStream filestream = new FileStream(@"C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\wwwroot\img\" + slide.Photo.FileName, FileMode.Create))
-            {
-                slide.Photo.CopyTo(filestream);
-            };
+            var filename = Guid.NewGuid().ToString();
+            //using(FileStream filestream = new FileStream(@"C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\wwwroot\img\" + slide.Photo.FileName, FileMode.Create))
+            //{
+            //    slide.Photo.CopyTo(filestream);
+            //};
             return Json("ok");
         }
     }
