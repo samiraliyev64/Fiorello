@@ -53,5 +53,27 @@ namespace Fiorello.Areas.AdminPanel.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            var slider = _context.Slides.Find(id);
+
+            if(slider == null)
+            {
+                return NotFound();
+            }
+            var path = Helper.GetPath(_env.WebRootPath, "img", slider.Url);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            _context.Slides.Remove(slider);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
