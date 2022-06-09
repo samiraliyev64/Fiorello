@@ -1,5 +1,6 @@
 ﻿using Fiorello.DAL;
 using Fiorello.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,11 @@ namespace Fiorello.Areas.AdminPanel.Controllers
     public class SliderController : Controller
     {
         private AppDbContext _context { get; }
-        public SliderController(AppDbContext context)
+        private IWebHostEnvironment _env { get; }
+        public SliderController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
         public IActionResult Index()
         {
@@ -27,7 +30,7 @@ namespace Fiorello.Areas.AdminPanel.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Slide slide)
+        public async Task<IActionResult> Create(Slide slide)
         {
             if (!ModelState.IsValid)
             {
@@ -44,12 +47,16 @@ namespace Fiorello.Areas.AdminPanel.Controllers
                 ModelState.AddModelError("Photo", "File type must be image ");
                 return View();
             }
-            var filename = Guid.NewGuid().ToString() + slide.Photo.FileName;
-            //using(FileStream filestream = new FileStream(@"C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\wwwroot\img\" + slide.Photo.FileName, FileMode.Create))
-            //{
-            //    slide.Photo.CopyTo(filestream);
-            //};
-            return Json("ok");
+            var fileName = Guid.NewGuid().ToString() + slide.Photo.FileName;
+            var resultPath = Path.Combine(_env.WebRootPath,"img",fileName);
+            using(FileStream filestream = new FileStream(resultPath, FileMode.Create))
+            {
+                await slide.Photo.CopyToAsync(filestream);
+            };
+            slide.Url = fileName;
+            await _context.Slides.AddAsync(slide);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
