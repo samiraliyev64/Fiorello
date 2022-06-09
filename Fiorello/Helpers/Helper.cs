@@ -10,7 +10,7 @@ namespace Fiorello.Helpers
     {
         public static string GetPath(string root, params string[] folders)
         {
-            string resultPath = root;
+            var resultPath = root;
             foreach (var folder in folders)
             {
                 resultPath = Path.Combine(resultPath, folder);
