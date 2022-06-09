@@ -3,6 +3,7 @@ using Fiorello.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -35,11 +36,19 @@ namespace Fiorello.Areas.AdminPanel.Controllers
 
             if(slide.Photo.Length / 1024 > 200)
             {
-                ModelState.AddModelError("Photo","Image size must be less than 200 KB");
+                ModelState.AddModelError("Photo","File size must be less than 200 KB");
                 return View();
             }
-
-            return Content("ok");
+            if (!slide.Photo.ContentType.Contains("img/"))
+            {
+                ModelState.AddModelError("Photo", "File type must be image ");
+                return View();
+            }
+            using(FileStream filestream = new FileStream(@"C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\wwwroot\img\" + slide.Photo.FileName, FileMode.Create))
+            {
+                slide.Photo.CopyTo(filestream);
+            };
+            return Json("ok");
         }
     }
 }
