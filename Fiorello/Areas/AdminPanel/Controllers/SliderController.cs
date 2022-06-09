@@ -44,7 +44,7 @@ namespace Fiorello.Areas.AdminPanel.Controllers
                 ModelState.AddModelError("Photo", "File type must be image ");
                 return View();
             }
-            var filename = Guid.NewGuid().ToString();
+            var filename = Guid.NewGuid().ToString() + slide.Photo.FileName;
             //using(FileStream filestream = new FileStream(@"C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\wwwroot\img\" + slide.Photo.FileName, FileMode.Create))
             //{
             //    slide.Photo.CopyTo(filestream);
