@@ -75,5 +75,40 @@ namespace Fiorello.Areas.AdminPanel.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Update(int? id)
+        {
+            if(id == null)
+            {
+                return BadRequest();
+            }
+            Slide slide = _context.Slides.Find(id);
+            if(slide == null)
+            {
+                return NotFound();
+            }
+            return View(slide);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int? id, Slide slide)
+        {
+            if(id == null)
+            {
+                return BadRequest();
+            }
+            Slide slideDb = _context.Slides.Find(id);
+            if(slideDb == null)
+            {
+                return NotFound();
+            }
+            //slideDb.Url = slideDb.SaveFileAsync(_env.WebRootPath, "img");
+            var pathDb = Helper.GetPath(_env.WebRootPath, "img", slideDb.Url);
+            pathDb = slide.Url;
+            await slide.Photo.SaveFileAsync(pathDb, "img");
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
