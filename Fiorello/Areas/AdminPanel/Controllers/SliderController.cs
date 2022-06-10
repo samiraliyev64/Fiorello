@@ -103,10 +103,13 @@ namespace Fiorello.Areas.AdminPanel.Controllers
             {
                 return NotFound();
             }
-            //slideDb.Url = slideDb.SaveFileAsync(_env.WebRootPath, "img");
+            slide.Url = await slide.Photo.SaveFileAsync(_env.WebRootPath, "img");
             var pathDb = Helper.GetPath(_env.WebRootPath, "img", slideDb.Url);
-            pathDb = slide.Url;
-            await slide.Photo.SaveFileAsync(pathDb, "img");
+            if (System.IO.File.Exists(pathDb))
+            {
+                System.IO.File.Delete(pathDb);
+            }
+            slideDb.Url = slide.Url;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
