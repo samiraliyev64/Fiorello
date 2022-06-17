@@ -155,3 +155,5 @@ C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Area
 C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Index.cshtml.g.cs
 C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Create.cshtml.g.cs
 C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Update.cshtml.g.cs
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs

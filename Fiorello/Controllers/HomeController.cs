@@ -26,7 +26,8 @@ namespace Fiorello.Controllers
                 SlideSummary = _context.SlideSummary.FirstOrDefault(),
                 Categories = _context.Categories.Where(c => !c.isDeleted).ToList(),
                 Products = _context.Products.Where(c => !c.isDeleted)
-                .Include(p => p.Images).Include(p => p.Category).ToList()
+                .Include(p => p.Images).Include(p => p.Category).ToList(),
+                Settings = _context.Settings.ToList()
             };
             return View(home);
         }

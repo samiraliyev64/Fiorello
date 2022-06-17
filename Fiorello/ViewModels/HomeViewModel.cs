@@ -13,5 +13,6 @@ namespace Fiorello.ViewModels
         public SlideSummary SlideSummary { get; set; }
         public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
+        public List<Settings> Settings { get; set; }
     }
 }
