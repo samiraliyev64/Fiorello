@@ -157,3 +157,12 @@ C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Area
 C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Update.cshtml.g.cs
 C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationPartial.cshtml.g.cs
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Account\SignIn.cshtml.g.cs
+C:\Users\HP\Desktop\asp.net\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\User\Index.cshtml.g.cs

@@ -76,7 +76,7 @@ namespace Fiorello.Areas.AdminPanel.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Update(int? id)
+        public IActionResult Update(int? id)
         {
             if(id == null)
             {
